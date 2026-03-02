@@ -1,4 +1,2 @@
 # Real-Time-Lip-Movement-Detection-and-Command-Execution-in-Robotics
-Real-time human–robot interaction system combining MediaPipe lip movement detection, Whisper speech recognition, and LangChain-powered LLM command execution to control a simulated drone in Gazebo using PID control.
-
-
+The main purpose of the project focuses on leveraging modern technology to enable human-robot or human-computer interaction. Specifically, the project utilizes Media Pipe to detect lip movements (comparing information of mean difference lips gap in the actual frame vs the last frame ). This mechanism triggers the Whisper system to convert spoken instructions into text. Subsequently, a large language model (LLM) powered by LangChain and Ollama performing the process of the text to interpret and execute commands within a simulated drone environment in Gazebo on Ubuntu 22.04 LTS
