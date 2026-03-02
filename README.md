@@ -1,2 +1,3 @@
 # Real-Time-Lip-Movement-Detection-and-Command-Execution-in-Robotics
+## Abstract
 The main purpose of the project focuses on leveraging modern technology to enable human-robot or human-computer interaction. Specifically, the project utilizes Media Pipe to detect lip movements (comparing information of mean difference lips gap in the actual frame vs the last frame ). This mechanism triggers the Whisper system to convert spoken instructions into text. Subsequently, a large language model (LLM) powered by LangChain and Ollama performing the process of the text to interpret and execute commands within a simulated drone environment in Gazebo on Ubuntu 22.04 LTS
