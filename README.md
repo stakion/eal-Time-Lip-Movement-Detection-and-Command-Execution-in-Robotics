@@ -54,3 +54,58 @@ The related work demonstrates advances in automatic speech recognition integrati
   A manually tuned PID controller (Kp=1, Ki=0.0001, Kd=0.01) manages movement.
   Position and orientation data are logged and plotted.
 
+
+## Experimental Framework
+To capture video it is necessary to consider not having the
+following biases:
+    • Viewing angle to the camera.
+    • Separation distance from face to camera.
+    • Strong body movements.
+    • Strong movements of the face or head.
+    • Covering the lips, the media-pipe system makes the prediction but is not able to detect movement with covered lips.
+    • Environment with too much or too little light.
+    • Ram memory saturation affects the performance of the camera.
+
+
+## Latency & Bottlenecks
+This project targets a real-time interaction loop (Webcam → Lip trigger → ASR → LLM → Drone action). During experimentation, the main limitation was latency, caused by CPU-intensive stages competing for resources and by Python runtime constraints.
+
+### Whisper (ASR) blocks the video loop (OpenCV freeze/lag)
+#### What happens: 
+When Whisper is triggered, the OpenCV stream experiences a visible interruption (frame freeze/lag) until transcription completes.  <br>
+
+#### Why it happens:
+ * Whisper transcription is computationally heavy (CPU-bound in local execution).
+ * If transcription runs in the main thread (or starves it), the video capture/render loop cannot maintain its frame rate.
+ * Whisper inference competes with OpenCV + MediaPipe for CPU and RAM.  <br>
+
+#### Observed impact:
+Typical transcription time: ~40–70 seconds per activation (hardware/load dependent).
+In practice, ~1 minute average to produce the final text locally.  <br>
+
+
+
+## Performance of the local comparison between processing sentences
+### Sentences used to measure the latency between LLama v2 and LLama v3:
+1. ”I want to go to a position”.
+2. ”Move the dron 2 meters to the right”.
+3. ”What it’s the actual position of the Dron”
+4. "How far it's the dron from the origin?"
+5. "How fast the dron it moving?"
+6. "How fast the dron it's rotating?"
+7. "How many revolutions per second it's performing the dron"
+8. "I want to put a tag in this point"
+9. "Recover x,y,z"
+10. "Recover Vx,Vy,Vz"
+11. "Recover Wx,Wy,Wz"
+12. "Where is facing the Dron?"
+13. "Land"
+14. "Take off the Dron"
+15. "Can you stop Dron?"
+16. "I don't going to use the dron know, can you please stop the dron?
+17. "If the Dron is stopped, please land the dron"
+18. "If the Dron has Movement, please stop the dron"
+19. "Is the dron moving right now?"
+20. "The Dron it's rotating?"
+
+## Performance of the local comparison between english and spanish language
