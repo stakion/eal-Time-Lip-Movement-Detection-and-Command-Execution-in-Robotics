@@ -86,7 +86,7 @@ In practice, ~1 minute average to produce the final text locally.  <br>
 #### What was tested: 
 Multithreading, multiprocessing, and concurrent.futures.
 
-### Why results are limited:
+#### Why results are limited:
  * Multithreading: limited benefit for CPU-bound workloads in Python due to the GIL.
  * Multiprocessing: introduces overhead (process spawn, IPC, memory duplication), which can reduce the net gain.
  * concurrent.futures: offers the cleanest control over asynchronous tasks and improved loop responsiveness, but cannot reduce Whisper’s raw inference time.
