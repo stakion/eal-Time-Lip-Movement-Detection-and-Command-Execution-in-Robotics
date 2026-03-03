@@ -144,8 +144,16 @@ Even when each module works independently, the full pipeline suffers from compet
 19. "Is the dron moving right now?"
 20. "The Dron it's rotating?"
 
+### Comparison in Englsih Language
 <p align="center">
   <img src="assets/LLAMA_EN.png" width="600"/>
 </p>
-<p align="center"><em>Figure 1. LLama v2 vs LLama v3 english questions latency comparison (local inference).</em></p>
+<p align="center"><em>Figure 1. LLama v2 vs LLama v3 latency comparison on each numbered question (local inference).</em></p>
+
+
+### Comparison in Spanish Language
+<p align="center">
+  <img src="assets/LLAMA_ES.png" width="600"/>
+</p>
+<p align="center"><em>Figure 2. LLama v2 vs LLama v3 latency comparison on each numbered question (local inference).</em></p>
 
