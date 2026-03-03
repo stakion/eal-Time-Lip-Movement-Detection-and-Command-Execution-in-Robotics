@@ -157,3 +157,11 @@ Even when each module works independently, the full pipeline suffers from compet
 </p>
 <p align="center"><em>Figure 2. LLama v2 vs LLama v3 latency comparison on each numbered question (local inference).</em></p>
 
+## File Description
+| File Name                          | File Type      | Purpose | Main Contents | Overall Role in Project |
+|-------------------------------------|---------------|---------|---------------|--------------------------|
+| Final_Report_Sebastian_Rivett.pdf   | PDF Report    | Academic report documenting the development of a real-time lip movement detection and command execution system integrating speech recognition and LLMs. | • Project introduction and objectives <br> • Whisper (speech recognition) explanation <br> • MediaPipe (lip detection) framework <br> • LangChain and Ollama integration <br> • LLaMA 2 and LLaMA 3 testing <br> • Drone control in Gazebo using PID <br> • Experimental setup and hardware considerations <br> • Performance results and conclusions | Provides the theoretical background, system architecture, experimental methodology, and evaluation results of the full robotics + AI integration system. |
+| Final_Proyect_55.py                | Python Script | Implementation of the full real-time system described in the report. | • Audio device detection and recording <br> • Whisper transcription pipeline <br> • Webcam capture with OpenCV <br> • Lip landmark detection using MediaPipe <br> • Lip movement threshold calculation <br> • LangChain + Ollama (LLaMA 3) classification <br> • Threaded execution for parallel processing <br> • Data logging to CSV <br> • Performance timing measurements | Contains the complete executable pipeline that integrates vision, audio processing, LLM classification, and drone command logic in a real-time environment. |
+
+
+
